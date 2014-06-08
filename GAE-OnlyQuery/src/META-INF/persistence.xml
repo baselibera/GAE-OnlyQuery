@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+
+    <persistence-unit name="transactions-optional">
+        <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <properties>
+            <property name="datanucleus.NontransactionalRead" value="true"/>
+            <property name="datanucleus.NontransactionalWrite" value="true"/>
+            <property name="datanucleus.ConnectionURL" value="appengine"/>
+        </properties>
+    </persistence-unit>
+    
+  <persistence-unit name="org.springframework.samples_PP-DBQuering_war_1.0.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.jolab.entity.SqlReport</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://10.211.55.36:3306/cdcol?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="apocalisse"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="jolab"/>
+    </properties>
+  </persistence-unit>    
+    
+</persistence>
